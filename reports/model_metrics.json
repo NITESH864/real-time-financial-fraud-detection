@@ -1,0 +1,21 @@
+{
+  "threshold_selected_on_validation": 0.9500000000000001,
+  "validation_best_f1": 0.15978986538251067,
+  "test_average_precision_pr_auc": 0.4275861411359402,
+  "test_precision": 0.13429968564442893,
+  "test_recall": 0.6083860759493671,
+  "test_f1": 0.2200286123032904,
+  "test_confusion_matrix": [
+    [
+      83257,
+      4957
+    ],
+    [
+      495,
+      769
+    ]
+  ],
+  "test_rows": 89478,
+  "test_fraud_count": 1264,
+  "train_scale_pos_weight": 1051.0683272790175
+}

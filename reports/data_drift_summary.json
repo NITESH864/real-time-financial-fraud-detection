@@ -1,0 +1,83 @@
+{
+  "metrics": [
+    {
+      "id": "15e89f895b482f9b84ba7274ed18a106",
+      "metric_name": "DriftedColumnsCount(drift_share=0.5)",
+      "config": {
+        "type": "evidently:metric_v2:DriftedColumnsCount",
+        "drift_share": 0.5
+      },
+      "value": {
+        "count": 2.0,
+        "share": 0.3333333333333333
+      }
+    },
+    {
+      "id": "229192bae4e1c128c89d2c7cb5859c1b",
+      "metric_name": "ValueDrift(column=step,method=Wasserstein distance (normed),threshold=0.1)",
+      "config": {
+        "type": "evidently:metric_v2:ValueDrift",
+        "column": "step",
+        "method": "Wasserstein distance (normed)",
+        "threshold": 0.1
+      },
+      "value": 2.4198037847902762
+    },
+    {
+      "id": "3fbadf4ef830ee712c8786bb533753db",
+      "metric_name": "ValueDrift(column=amount,method=Wasserstein distance (normed),threshold=0.1)",
+      "config": {
+        "type": "evidently:metric_v2:ValueDrift",
+        "column": "amount",
+        "method": "Wasserstein distance (normed)",
+        "threshold": 0.1
+      },
+      "value": 0.03699840505136915
+    },
+    {
+      "id": "a3c8d72c94181f34583629ebe0b85a6e",
+      "metric_name": "ValueDrift(column=logAmount,method=Wasserstein distance (normed),threshold=0.1)",
+      "config": {
+        "type": "evidently:metric_v2:ValueDrift",
+        "column": "logAmount",
+        "method": "Wasserstein distance (normed)",
+        "threshold": 0.1
+      },
+      "value": 0.034607900454232704
+    },
+    {
+      "id": "89da0f3ffdaba8d07bc9f3af4948cc0e",
+      "metric_name": "ValueDrift(column=hourOfDay,method=Wasserstein distance (normed),threshold=0.1)",
+      "config": {
+        "type": "evidently:metric_v2:ValueDrift",
+        "column": "hourOfDay",
+        "method": "Wasserstein distance (normed)",
+        "threshold": 0.1
+      },
+      "value": 0.12513594962222993
+    },
+    {
+      "id": "36aaaeb391e6129c0f73ddd694a05202",
+      "metric_name": "ValueDrift(column=type,method=Jensen-Shannon distance,threshold=0.1)",
+      "config": {
+        "type": "evidently:metric_v2:ValueDrift",
+        "column": "type",
+        "method": "Jensen-Shannon distance",
+        "threshold": 0.1
+      },
+      "value": 0.008785609377746622
+    },
+    {
+      "id": "43f60fecb571ae31d3432eb88ba2bc7e",
+      "metric_name": "ValueDrift(column=isMerchantDest,method=Jensen-Shannon distance,threshold=0.1)",
+      "config": {
+        "type": "evidently:metric_v2:ValueDrift",
+        "column": "isMerchantDest",
+        "method": "Jensen-Shannon distance",
+        "threshold": 0.1
+      },
+      "value": 0.003177982467241722
+    }
+  ],
+  "tests": []
+}

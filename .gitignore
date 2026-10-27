@@ -1,0 +1,61 @@
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+venv/
+.venv/
+.env
+.env.*
+
+# Secrets and credentials
+*.pem
+*.key
+secrets/
+credentials/
+
+# Local datasets and generated artifacts
+data/*
+!data/.gitkeep
+models/*.joblib
+models/*.pt
+models/*.pkl
+
+# Local databases and tracking files
+*.db
+*.sqlite
+*.sqlite3
+mlflow.db
+
+# Logs and caches
+*.log
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# IDE and operating system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+
+# MLflow local tracking artifacts
+mlruns/
+mlartifacts/
+
+# Feast local registry and online store
+feature_repo/data/*.db
+feature_repo/data/*.sqlite
+feature_repo/data/*.sqlite3
+feature_repo/data/*.parquet
+
+# Local runtime artifacts
+*.pid
+.DS_Store
+
+# Large generated monitoring report
+reports/data_drift_report.html
+
+# Trained model binaries
+models/

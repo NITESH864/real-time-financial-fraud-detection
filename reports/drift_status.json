@@ -1,0 +1,11 @@
+{
+  "monitor": "Evidently AI",
+  "report_file": "reports\\data_drift_summary.json",
+  "status": "REVIEW_REQUIRED",
+  "message": "Inspect the Evidently HTML report to determine which features drifted and whether further investigation is needed.",
+  "extracted_findings": [
+    {
+      "drift_share": 0.5
+    }
+  ]
+}
