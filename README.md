@@ -293,6 +293,54 @@ These results apply to the sampled chronological evaluation used by the benchmar
 
 The current GNN experiment has substantially weaker ranking performance and produces many false positives. It is retained as an experimental component rather than the recommended scoring model.
 
+## Reproducing the Model
+
+The trained model files are excluded from Git because they are generated artifacts. Train the model locally before starting the API.
+
+### 1. Prepare the dataset
+
+Download the PaySim dataset and place the transaction CSV at:
+
+`data/transactions.csv`
+
+### 2. Set up the environment
+
+```powershell
+python -m venv venv
+.\venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+```
+
+### 3. Train the XGBoost model
+
+```powershell
+python -m src.train
+```
+
+This generates:
+
+- `models/fraud_model.joblib`
+- `reports/model_metrics.json`
+
+### 4. Start the API
+
+```powershell
+python -m uvicorn src.api.main:app --host 127.0.0.1 --port 8000
+```
+
+Open `http://127.0.0.1:8000/docs` to explore the API.
+
+### Baseline evaluation
+
+On the current test set, the XGBoost baseline achieved:
+
+- Average precision (PR-AUC): 0.4276
+- Precision: 13.43%
+- Recall: 60.84%
+- F1 score: 0.2200
+
+These results are from an imbalanced fraud-detection dataset. Predictions require further validation before any real-world use.
+
 ## Limitations and Future Improvements
 
 - Improve graph construction and the handling of previously unseen accounts.
