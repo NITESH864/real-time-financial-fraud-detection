@@ -10,6 +10,16 @@ The platform combines a supervised XGBoost baseline with a graph neural network 
 
 **Project status:** Working prototype and ongoing development. Not a production-ready fraud prevention system.
 
+ Live Demo
+
+Live Dashboard: https://fraud-detection-dashboard-55af.onrender.com
+
+Backend API: https://fraud-detection-api-fmy7.onrender.com
+
+API Documentation: https://fraud-detection-api-fmy7.onrender.com/docs
+
+GitHub Repository: https://github.com/NITESH864/real-time-financial-fraud-detection
+
 ## Features
 
 - **Exploratory Data Analysis:** Transaction distribution and fraud-pattern visualizations.
