@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Interactive PaySim financial transaction fraud detection demo powered by machine learning.">
+    <title>FraudShield | AI Fraud Detection</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <header class="topbar">
+        <a class="brand" href="#">
+            <span class="brand-icon">F</span>
+            <span>FraudShield <small>INTELLIGENCE PLATFORM</small></span>
+        </a>
+        <div class="api-indicator">
+            <span class="status-dot"></span>
+            <span id="api-status">Checking API...</span>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <p class="eyebrow">MACHINE LEARNING · REAL-TIME SCORING</p>
+            <h1>Financial Fraud Detection</h1>
+            <p class="subtitle">
+                Evaluate a transaction using an XGBoost model trained on the PaySim dataset.
+            </p>
+        </section>
+
+        <section class="dashboard">
+            <div class="panel form-panel">
+                <div class="panel-heading">
+                    <div>
+                        <p class="eyebrow">TRANSACTION ANALYSIS</p>
+                        <h2>Check a transaction</h2>
+                    </div>
+                    <span class="step-number">01</span>
+                </div>
+
+                <form id="transaction-form">
+                    <label for="amount">Transaction amount</label>
+                    <div class="input-with-prefix">
+                        <span>₹</span>
+                        <input id="amount" type="number" min="0" step="any" placeholder="5000.00" value="5000" required>
+                    </div>
+
+                    <label for="type">Transaction type</label>
+                    <select id="type" required>
+                        <option value="TRANSFER">Transfer</option>
+                        <option value="CASH_OUT">Cash out</option>
+                        <option value="PAYMENT">Payment</option>
+                        <option value="CASH_IN">Cash in</option>
+                        <option value="DEBIT">Debit</option>
+                    </select>
+
+                    <label for="step">Transaction step</label>
+                    <input id="step" type="number" min="0" step="1" value="100" required>
+                    <p class="field-help">Simulation time step from the PaySim dataset.</p>
+
+                    <label for="destination">Destination account</label>
+                    <input id="destination" type="text" maxlength="100" value="C123456789" required>
+                    <p class="field-help">Use a fictional account ID for this demo.</p>
+
+                    <button id="score-button" type="submit">
+                        <span id="button-text">Analyze transaction →</span>
+                    </button>
+                    <p id="error-message" class="error" role="alert"></p>
+                </form>
+            </div>
+
+            <div class="results-column">
+                <section class="panel result-panel" aria-live="polite">
+                    <div class="panel-heading">
+                        <div>
+                            <p class="eyebrow">MODEL OUTPUT</p>
+                            <h2>Risk assessment</h2>
+                        </div>
+                        <span class="step-number">02</span>
+                    </div>
+
+                    <div id="result-placeholder" class="placeholder">
+                        <div class="placeholder-icon">⌁</div>
+                        <h3>Awaiting transaction</h3>
+                        <p>Submit transaction details to see the model's prediction.</p>
+                    </div>
+
+                    <div id="result-content" hidden>
+                        <div id="risk-banner" class="risk-banner">
+                            <span id="risk-symbol">●</span>
+                            <div>
+                                <strong id="risk-title">Prediction result</strong>
+                                <p id="risk-description"></p>
+                            </div>
+                        </div>
+
+                        <div class="probability-block">
+                            <div class="metric-label">
+                                <span>Fraud probability</span>
+                                <strong id="probability-text">—</strong>
+                            </div>
+                            <div class="progress-track">
+                                <div id="probability-bar" class="progress-fill"></div>
+                            </div>
+                            <p class="field-help">Model-estimated probability, not proof of fraud.</p>
+                        </div>
+
+                        <div class="metrics-grid">
+                            <div class="metric-card">
+                                <span>Decision threshold</span>
+                                <strong id="threshold-text">—</strong>
+                            </div>
+                            <div class="metric-card">
+                                <span>Model version</span>
+                                <strong id="model-version">—</strong>
+                            </div>
+                        </div>
+                        <p id="decision-note" class="decision-note"></p>
+                    </div>
+                </section>
+
+                <section class="panel monitoring-panel">
+                    <div class="panel-heading">
+                        <div>
+                            <p class="eyebrow">MODEL OPERATIONS</p>
+                            <h2>Monitoring status</h2>
+                        </div>
+                    </div>
+                    <div class="monitor-row">
+                        <span>API availability</span>
+                        <strong id="health-status">Checking...</strong>
+                    </div>
+                    <div class="monitor-row">
+                        <span>Data drift monitoring</span>
+                        <strong id="drift-status">Checking...</strong>
+                    </div>
+                    <p id="monitor-note" class="field-help">
+                        Monitoring information is retrieved from the deployed API.
+                    </p>
+                </section>
+            </div>
+        </section>
+
+        <section class="disclaimer">
+            <strong>Research demonstration only.</strong>
+            This model can produce false positives and false negatives. Do not use
+            its predictions as the sole basis for real financial decisions.
+            Enter only fictional test data; do not submit real customer information.
+        </section>
+    </main>
+
+    <footer>
+        <span>FraudShield · PaySim ML Demo</span>
+        <a href="https://fraud-detection-api-fmy7.onrender.com/docs" target="_blank" rel="noopener noreferrer">API
+            documentation ↗</a>
+    </footer>
+</body>
+
+</html>
